@@ -1,0 +1,25 @@
+{
+    "name": "phenyxdigitale/coredev",
+    "description": "Ephenyx Digital Core Developpement",  
+    "homepage": "https://github.com/phenyxdigitale/coredev",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeff Hunger",
+            "homepage": "https://ephenyx.com"
+        }
+    ],    
+    "require": {
+        "php": "^8.0",
+        "defuse/php-encryption": "^2",
+        "nicolab/php-ftp-client": "^2",
+        "smarty/smarty": "^4",
+        "php-curl-class/php-curl-class": "^9",
+        "phpmailer/phpmailer": "^6.6"
+    },  
+	"autoload": {
+		"classmap": {"digitalCore": "src/"},
+        "files": ["digitalcore.composer.php"]
+	}
+}
