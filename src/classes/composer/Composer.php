@@ -1613,12 +1613,12 @@ class Composer {
 
     public static function getTPLPath($template = '', $plugin_name = 'phenyxthememanager') {
 
-        if (Tools::file_exists_cache(_PS_THEME_DIR_ . 'plugins/' . $plugin_name . '/' . $template)) {
-            return _PS_THEME_DIR_ . 'plugins/' . $plugin_name . '/' . $template;
-        } else if (Tools::file_exists_cache(_PS_THEME_DIR_ . 'plugins/' . $plugin_name . '/views/templates/front/' . $template)) {
-            return _PS_THEME_DIR_ . 'plugins/' . $plugin_name . '/views/templates/front/' . $template;
-        } else if (Tools::file_exists_cache(_PS_PLUGIN_DIR_ . $plugin_name . '/views/templates/front/' . $template)) {
-            return _PS_PLUGIN_DIR_ . $plugin_name . '/views/templates/front/' . $template;
+        if (Tools::file_exists_cache(_EPH_THEME_DIR_ . 'plugins/' . $plugin_name . '/' . $template)) {
+            return _EPH_THEME_DIR_ . 'plugins/' . $plugin_name . '/' . $template;
+        } else if (Tools::file_exists_cache(_EPH_THEME_DIR_ . 'plugins/' . $plugin_name . '/views/templates/front/' . $template)) {
+            return _EPH_THEME_DIR_ . 'plugins/' . $plugin_name . '/views/templates/front/' . $template;
+        } else if (Tools::file_exists_cache(_EPH_PLUGIN_DIR_ . $plugin_name . '/views/templates/front/' . $template)) {
+            return _EPH_PLUGIN_DIR_ . $plugin_name . '/views/templates/front/' . $template;
         }
 
         return false;

@@ -297,7 +297,7 @@ class ErrorUtils {
     public static function getRelativeFile($file) {
 
         if ($file) {
-            return ltrim(str_replace([_PS_ROOT_DIR_, '\\'], ['', '/'], $file), '/');
+            return ltrim(str_replace([_EPH_ROOT_DIR_, '\\'], ['', '/'], $file), '/');
         } else {
             return '';
         }

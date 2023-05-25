@@ -195,7 +195,7 @@ class ServiceLocator {
             return new CliErrorResponse();
         }
 
-        if (_PS_MODE_DEV_) {
+        if (_EPH_MODE_DEV_) {
             return new DebugErrorPage();
         }
 
