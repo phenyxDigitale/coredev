@@ -66,7 +66,7 @@ class ServiceLocator {
         $this->container->bind(static::SERVICE_SERVICE_LOCATOR, $this, true);
         $this->container->bind(static::SERVICE_WORK_QUEUE_CLIENT, static::SERVICE_WORK_QUEUE_CLIENT, true);
         $this->container->bind(static::SERVICE_SCHEDULER, static::SERVICE_SCHEDULER, true);
-        $this->container->bind(static::SERVICE_READ_WRITE_CONNECTION, [Db::, 'getInstance'], true);
+        $this->container->bind(static::SERVICE_READ_WRITE_CONNECTION, [Db::class, 'getInstance'], true);
 
         // legacy services
         $this->container->bind(static::SERVICE_ADAPTER_CONFIGURATION, 'Adapter_Configuration', true);
