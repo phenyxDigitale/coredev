@@ -27,7 +27,7 @@ class DebugErrorPage extends AbstractErrorPage {
     protected function renderError(ErrorDescription $errorDescription) {
 
         return static::displayErrorTemplate(
-            _PS_ROOT_DIR_ . '/error500_debug.phtml',
+            _EPH_ROOT_DIR_ . '/error500_debug.phtml',
             [
                 'errorDescription' => $errorDescription,
                 'helper'           => $this,

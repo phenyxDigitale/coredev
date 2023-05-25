@@ -1,6 +1,6 @@
 <?php
 
-use Ephenyxdigitale\Core\DependencyInjection\ServiceLocator;
+use Ephenyxdigital\Core\DependencyInjection\ServiceLocator;
 
 /**
  * Class Adapter_ServiceLocator
@@ -8,14 +8,7 @@ use Ephenyxdigitale\Core\DependencyInjection\ServiceLocator;
 // @codingStandardsIgnoreStart
 class Adapter_ServiceLocator {
 
-    // @codingStandardsIgnoreEnd
-
-    /**
-     * Set a service container Instance
-     * @var Core_Foundation_IoC_Container
-     */
-    protected static $serviceContainer;
-
+   
     /**
      * @param Core_Foundation_IoC_Container $container
      */

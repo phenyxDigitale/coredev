@@ -63,7 +63,7 @@ abstract class AbstractErrorPage implements ErrorResponseInterface {
             // simply give up
             $this->contentType = 'text/plain';
 
-            if (_PS_MODE_DEV_) {
+            if (_EPH_MODE_DEV_) {
                 $message = "Failed to display exception:\n";
                 $message .= $errorDescription->getMessage();
                 $message .= "\n\nFailure reason:\n";

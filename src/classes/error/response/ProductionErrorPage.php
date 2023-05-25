@@ -28,9 +28,9 @@ class ProductionErrorPage extends AbstractErrorPage {
     protected function renderError(ErrorDescription $errorDescription) {
 
         return static::displayErrorTemplate(
-            _PS_ROOT_DIR_ . '/error500.phtml',
+            _EPH_ROOT_DIR_ . '/error500.phtml',
             [
-                'shopEmail' => \Configuration::get('PS_SHOP_EMAIL'),
+                'shopEmail' => \Configuration::get('EPH_SHOP_EMAIL'),
                 'encrypted' => $errorDescription->encrypt(),
             ]
         );
