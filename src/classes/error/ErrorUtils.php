@@ -93,12 +93,12 @@ class ErrorUtils {
         $stacktrace = [];
 
         foreach ($traces as $id => $trace) {
-            $class = $trace['class'] ?  ? '';
-            $function = $trace['function'] ?  ? '';
-            $type = $trace['type'] ?  ? '';
-            $fileName = $trace['file'] ?  ? '';
-            $lineNumber = $trace['line'] ?  ? 0;
-            $args = $trace['args'] ?  ? [];
+            $class = $trace['class'] ?? '';
+            $function = $trace['function'] ?? '';
+            $type = $trace['type'] ?? '';
+            $fileName = $trace['file'] ?? '';
+            $lineNumber = $trace['line'] ?? 0;
+            $args = $trace['args'] ?? [];
             $isTemplate = false;
             $showLines = static::FILE_CONTEXT_LINES;
 
@@ -267,7 +267,7 @@ class ErrorUtils {
      */
     protected static function isSensitiveParameter($name) {
 
-        $name = strtolower($name ?  ? '');
+        $name = strtolower($name ?? '');
         $sensitive = [
             'passwd',
             'password',
@@ -393,7 +393,7 @@ class ErrorUtils {
         }
 
         if (!$class && $function === 'smartyHook') {
-            $hookName = $args[0]['h'] ?  ? '';
+            $hookName = $args[0]['h'] ?? '';
             return 'Execute hook <b>' . $hookName . '</b>';
         }
 
