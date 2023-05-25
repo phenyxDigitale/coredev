@@ -9,7 +9,7 @@ use Ephenyxdigital\Core\Error\ErrorDescription;
  *
  * @since 1.4.0
  */
-class ProductionErrorPageCore extends AbstractErrorPage {
+class ProductionErrorPage extends AbstractErrorPage {
 
     /**
      * Return content type

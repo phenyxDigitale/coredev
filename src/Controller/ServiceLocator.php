@@ -17,7 +17,7 @@ use PhenyxException;
  *
  * @since 1.3.0
  */
-class ServiceLocatorCore {
+class ServiceLocator {
 
     // services
     const SERVICE_SERVICE_LOCATOR = 'Ephenyxdigital\Core\DependencyInjection\ServiceLocator';

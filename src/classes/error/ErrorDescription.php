@@ -9,7 +9,7 @@ use Encryptor;
  *
  * @since 1.4.0
  */
-class ErrorDescriptionCore {
+class ErrorDescription {
 
     /**
      * @var string

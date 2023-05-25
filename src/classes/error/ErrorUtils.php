@@ -2,7 +2,7 @@
 
 namespace Ephenyxdigital\Core\Error;
 
-use PhenyxExceptionCore;
+use PhenyxException;
 use SmartyCustom;
 use Throwable;
 
@@ -11,7 +11,7 @@ use Throwable;
  *
  * @since 1.4.0
  */
-class ErrorUtilsCore {
+class ErrorUtils {
 
     const FILE_CONTEXT_LINES = 30;
 
@@ -83,7 +83,7 @@ class ErrorUtilsCore {
             $errorDescription->setSource('php', $file, $line, static::readFile($file, $line, static::FILE_CONTEXT_LINES));
         }
 
-        if ($e instanceof PhenyxExceptionCore) {
+        if ($e instanceof PhenyxException) {
             $traces = $e->getCustomTrace();
             $errorDescription->setExtraSections($e->getExtraSections());
         } else {

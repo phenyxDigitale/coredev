@@ -14,7 +14,7 @@ use Throwable;
  *
  * @since 1.1.0
  */
-class ErrorHandlerCore {
+class ErrorHandler {
 
     /**
      * @var ErrorResponseInterface

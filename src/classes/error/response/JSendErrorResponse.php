@@ -9,7 +9,7 @@ use Ephenyxdigital\Core\Error\ErrorDescription;
  *
  * @since 1.4.0
  */
-class JSendErrorResponseCore extends AbstractErrorPage {
+class JSendErrorResponse extends AbstractErrorPage {
 
     protected $sendErrorMessage;
 

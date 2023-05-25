@@ -9,7 +9,7 @@ use Ephenyxdigital\Core\Error\ErrorDescription;
  *
  * @since 1.4.0
  */
-abstract class AbstractErrorPageCore implements ErrorResponseInterface {
+abstract class AbstractErrorPage implements ErrorResponseInterface {
 
     /**
      * @var string | null
