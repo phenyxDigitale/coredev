@@ -1,6 +1,6 @@
 <?php
 
-namespace PhenyxDigital\digitalCore;
+namespace PhenyxDigitale\digitalCore;
 
 /**
  * Class PhenyxController

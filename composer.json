@@ -21,8 +21,8 @@
 	"autoload": {
 		"classmap": {"digitalCore": "src/"},
         "files": ["digitalcore.composer.php"],
-        "psr-4": {
-            "phenyxDigitale\\digitalCore\\": "digitalCore"
+        "psr-0": {
+            "phenyxDigitale\\digitalCore\\": "digitalCore/"
         }
 	}
 }
