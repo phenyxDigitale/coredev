@@ -7,7 +7,7 @@ namespace PhenyxDigitale\digitalCore;
  *
  * @since 1.6.6.3
  */
-abstract class PhenyxController {
+class PhenyxController {
 
     public static $php_errors = [];
 
