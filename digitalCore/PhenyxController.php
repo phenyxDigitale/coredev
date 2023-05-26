@@ -1,11 +1,9 @@
 <?php
 
-use Ephenyxdigital\Core\DependencyInjection\ServiceLocator;
-use Ephenyxdigital\Core\Error\ErrorHandler;
-use Ephenyxdigital\Core\Error\ErrorUtils;
+namespace PhenyxDigital\digitalCore;
 
 /**
- * Class ControllerCore
+ * Class PhenyxController
  *
  * @since 1.6.6.3
  */
@@ -119,8 +117,7 @@ abstract class PhenyxController {
 
     public static function getController($className, $auth = false, $ssl = false) {
 
-        Tools::displayAsDeprecated();
-        return ServiceLocator::getInstance()->getController($className);
+        return new $className($auth, $ssl);
     }
 
     public static function myErrorHandler($errno, $errstr, $errfile, $errline) {
@@ -1488,28 +1485,6 @@ abstract class PhenyxController {
         
        return $this->content_ajax;
 
-    }
-    
-    protected static function getErrorHandler(): ErrorHandler {
-        
-        return ServiceLocator::getInstance()->getErrorHandler();
-    }
-
-    /**
-     * Returns error messages collected by ErrorHandler
-     * @return array
-     */
-    protected static function getErrorMessages() {
-        
-        if (_EPH_MODE_DEV_) {
-            if (_EPH_DISPLAY_COMPATIBILITY_WARNING_) {
-                $mask = E_ALL;
-            } else {
-                $mask = E_ALL & ~(E_DEPRECATED | E_USER_DEPRECATED);
-            }
-            return static::getErrorHandler()->getErrorMessages(false, $mask);
-        }
-        return [];
     }
 
 

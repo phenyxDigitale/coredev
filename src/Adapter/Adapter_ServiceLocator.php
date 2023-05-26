@@ -1,21 +1,25 @@
 <?php
 
-use Ephenyxdigital\Core\DependencyInjection\ServiceLocator;
-
 /**
  * Class Adapter_ServiceLocator
  */
 // @codingStandardsIgnoreStart
 class Adapter_ServiceLocator {
 
-   
+    // @codingStandardsIgnoreEnd
+
+    /**
+     * Set a service container Instance
+     * @var Core_Foundation_IoC_Container
+     */
+    protected static $serviceContainer;
+
     /**
      * @param Core_Foundation_IoC_Container $container
      */
     public static function setServiceContainerInstance(Core_Foundation_IoC_Container $container) {
 
-        Tools::displayAsDeprecated();
-        ServiceLocator::initialize($container);
+        self::$serviceContainer = $container;
     }
 
     /**
@@ -31,7 +35,11 @@ class Adapter_ServiceLocator {
      */
     public static function get($serviceName) {
 
-        return ServiceLocator::getInstance()->getByServiceName($serviceName);
+        if (empty(self::$serviceContainer) || is_null(self::$serviceContainer)) {
+            throw new Adapter_Exception('Service container is not set.');
+        }
+
+        return self::$serviceContainer->make($serviceName);
     }
 
 }

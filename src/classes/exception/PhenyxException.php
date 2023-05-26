@@ -10,7 +10,7 @@ class PhenyxException extends Exception {
     protected $trace;
 
     /**
-     * PhenyxException constructor.
+     * PhenyxExceptionCore constructor.
      *
      * @param string         $message
      * @param int            $code

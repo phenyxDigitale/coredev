@@ -1,6 +1,6 @@
 {
     "name": "phenyxdigitale/coredev",
-    "description": "Ephenyx Digital Core Developpement",  
+    "description": "Deploy Ephenyx Digital Core",  
     "homepage": "https://github.com/phenyxdigitale/coredev",
     "type": "library",
     "license": "MIT",
@@ -20,6 +20,9 @@
     },  
 	"autoload": {
 		"classmap": {"digitalCore": "src/"},
-        "files": ["digitalcore.composer.php"]
+        "files": ["digitalcore.composer.php"],
+        "psr-4": {
+            "phenyxDigitale\\digitalCore\\": "digitalCore"
+        }
 	}
 }

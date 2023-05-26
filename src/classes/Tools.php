@@ -1,7 +1,9 @@
 <?php
 
+use CommerceGuys\Intl\Currency\CurrencyRepository;
+use CommerceGuys\Intl\Formatter\NumberFormatter;
+use CommerceGuys\Intl\NumberFormat\NumberFormatRepository;
 use PHPSQLParser\PHPSQLParser;
-use Ephenyxdigital\Core\Error\ErrorUtils;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -773,20 +775,14 @@ class Tools {
 
     
     public static function displayParameterAsDeprecated($parameter) {
-        $backtrace = debug_backtrace();
-        $curr = current($backtrace);
-        $callee = next($backtrace);
-        $class = $callee['class'] ?? '';
-        $file = ErrorUtils::getRelativeFile($curr['file']);
-        $callFile = ErrorUtils::getRelativeFile($callee['file']);
-        if ($class) {
-            $prefix = 'method ' . $class . '::';
-        } else {
-            $prefix = 'function ';
-        }
-        $error = $file. ': Parameter ' . $parameter . ' in ' . $prefix . $callee['function'].'() is deprecated. Called from ' . $callFile . ':' . $callee['line'];
 
-        trigger_error($error, E_USER_DEPRECATED);
+        $backtrace = debug_backtrace();
+        $callee = next($backtrace);
+        $error = 'Parameter <b>' . $parameter . '</b> in function <b>' . (isset($callee['function']) ? $callee['function'] : '') . '()</b> is deprecated in <b>' . $callee['file'] . '</b> on line <b>' . (isset($callee['line']) ? $callee['line'] : '(undefined)') . '</b><br />';
+        $message = 'The parameter ' . $parameter . ' in function ' . $callee['function'] . ' (Line ' . (isset($callee['line']) ? $callee['line'] : 'undefined') . ') is deprecated and will be removed in the next major version.';
+        $class = isset($callee['class']) ? $callee['class'] : null;
+
+        Tools::throwDeprecated($error, $message, $class);
     }
 
     protected static function throwDeprecated($error, $message, $class) {
@@ -958,24 +954,19 @@ class Tools {
     }
 
 
-    public static function displayAsDeprecated($message = null)  {
+    public static function displayAsDeprecated($message = null) {
+
         $backtrace = debug_backtrace();
-        $curr = current($backtrace);
         $callee = next($backtrace);
-        $class = $callee['class'] ?? '';
-        $file = ErrorUtils::getRelativeFile($curr['file']);
-        $callFile = ErrorUtils::getRelativeFile($callee['file']);
-        if ($class) {
-            $prefix = 'Method ' . $class . '::';
-        } else {
-            $prefix = 'Function ';
-        }
-        $error = $file . ': '. $prefix . $callee['function'].'() is deprecated. Called from ' . $callFile . ':' . $callee['line'];
-        if ($message) {
-            $error .= ". Reason: " . $message;
+        $class = isset($callee['class']) ? $callee['class'] : null;
+
+        if ($message === null) {
+            $message = 'The function ' . $callee['function'] . ' (Line ' . $callee['line'] . ') is deprecated and will be removed in the next major version.';
         }
 
-        trigger_error($error, E_USER_DEPRECATED);
+        $error = 'Function <b>' . $callee['function'] . '()</b> is deprecated in <b>' . $callee['file'] . '</b> on line <b>' . $callee['line'] . '</b><br />';
+
+        Tools::throwDeprecated($error, $message, $class);
     }
 
     public static function hash($password) {

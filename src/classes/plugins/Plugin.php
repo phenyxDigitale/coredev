@@ -55,7 +55,7 @@ abstract class Plugin {
     public $database_version;
     /** @var string Registered Version in database */
     public $registered_version;
-    /** @var array filled with known compliant Phenyx versions */
+    /** @var array filled with known compliant PrestaShop versions */
     public $eph_versions_compliancy = [];
     /**
      * @var string Filled with known compliant thirty bees versions
