@@ -115,7 +115,7 @@ abstract class PhenyxController {
 
     }
 
-    public static function getController($className, $auth = false, $ssl = false) {
+    public function getController($className, $auth = false, $ssl = false) {
 
         return new $className($auth, $ssl);
     }
